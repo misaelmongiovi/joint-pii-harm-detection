@@ -1,7 +1,7 @@
 # Joint fine-grained detection of personal data and harmful content (Italian and English)
 
-Code for the paper *One Encoder, Two Views of Sensitive Text: Joint Fine-Grained Detection of Personal Data and
-Harmful Content in Italian and English* (M. Mongiovì, L. Bulla; submitted to IEEE Access).
+Code for the paper *Joint Fine-Grained Detection of Personal Data and Harmful Content in Italian and English*
+(M. Mongiovì, L. Bulla; submitted to IEEE Access).
 
 A single XLM-RoBERTa large encoder is fine-tuned with two heads:
 - **PII tagging**: token-level BIO tagging over 20 types of personal identifiers
