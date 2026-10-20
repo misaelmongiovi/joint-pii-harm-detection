@@ -1,0 +1,27 @@
+# Baseline single-task (safety) con la stessa ricetta del modello congiunto
+encoder: FacebookAI/xlm-roberta-large
+attn: sdpa               # flash_attn non installato
+languages: [en, it]
+pii_repo: ai4privacy/open-pii-masking-500k-ai4privacy
+pii_revision: 506996d625ed970a0063432daf6007cf4a3a48e3
+pii_val_size: 4000
+safety_repo: nvidia/Nemotron-Safety-Guard-Dataset-v3
+safety_revision: a3f7ecb3433d1933701a83f18de16c36934a7f51
+max_len: 512
+max_tokens: 16384        # token (con padding) per batch
+max_bs: 128
+epochs: 3
+lr: 1.5e-5               # encoder
+head_lr: 1.0e-4          # teste nuove
+weight_decay: 0.01
+warmup_ratio: 0.06
+grad_clip: 1.0
+dropout: 0.1
+loss_weight: {pii: 1.0, safety: 1.0}
+grad_checkpointing: false
+seed: 42
+log_every: 20
+eval_every: 1000
+save_every: 500
+tasks: [safety]
+data_seed: 42
